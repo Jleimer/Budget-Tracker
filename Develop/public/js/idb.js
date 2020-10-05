@@ -32,18 +32,18 @@ function saveRecord(record) {
   }
 
   function uploadTransaction() {
-    // open a transaction on your db
+    
     const transaction = db.transaction(['new_transaction'], 'readwrite');
   
-    // access your object store
+    
     const pizzaObjectStore = transaction.objectStore('new_transaction');
   
-    // get all records from store and set to a variable
+    
     const getAll = expenseObjectStore.getAll();
   
-    // upon a successful .getAll() execution, run this function
+   
 getAll.onsuccess = function() {
-    // if there was data in indexedDb's store, let's send it to the api server
+    
     if (getAll.result.length > 0) {
       fetch('/api/transaction', {
         method: 'POST',
@@ -58,11 +58,11 @@ getAll.onsuccess = function() {
           if (serverResponse.message) {
             throw new Error(serverResponse);
           }
-          // open one more transaction
+          
           const transaction = db.transaction(['new_transaction'], 'readwrite');
-          // access the new_pizza object store
+          
           const expenseObjectStore = transaction.objectStore('new_transaction');
-          // clear all items in your store
+         
           expenseObjectStore.clear();
 
           alert('All saved expenses has been submitted!');
