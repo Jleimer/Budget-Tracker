@@ -22,10 +22,9 @@ app.get('/', function(req, res) {
 
 
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/budget-tracker', {
-  useFindAndModify: false,
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useFindAndModify: false
 });
 
 // routes
