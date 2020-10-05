@@ -13,8 +13,14 @@ app.use(logger("dev"));
 app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+//app.use(require('./server-worker'));
 app.use(express.static("public"));
+//app.use(express.static(__dirname + '/'));
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/index.html'));
+});
+
+
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,

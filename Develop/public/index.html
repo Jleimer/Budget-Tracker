@@ -9,7 +9,7 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/styles.css">
-
+  
   <title>Budget Tracker</title>
 </head>
 <body>
@@ -45,13 +45,20 @@
   <script src="js/index.js"></script>
   <script src="js/idb.js"></script>
   <script>
-    (function() {
+    // if ('serviceWorker' in navigator) {  window.addEventListener('load', () => {    
+    //     navigator.serviceWorker.register('./service-worker.js').then((reg) => {
+    //       console.log('Service worker registered.', reg);      
+    //   });  
+    // });}
+    (function () { 
+      console.log('working')
       if("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("../server-worker.js")
+        navigator.serviceWorker.register("/service-worker.js")
           .then(() => console.log("Service Worker registered successfully."))
           .catch(error => console.log("Service Worker registration failed:", error));
       }
     })();
+    
     </script>
 </body>
 </html>
